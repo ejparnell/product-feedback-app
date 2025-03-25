@@ -1,0 +1,19 @@
+@media screen and (min-width: 1440px) {
+    .feedback__container {
+        width: 100%;
+
+        display: grid;
+        grid:
+            "sidebar content" 1fr / auto 1fr;
+        gap: 8px;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+    }
+
+    .content {
+        grid-area: content;
+        width: 825px;
+    }
+}

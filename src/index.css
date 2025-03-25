@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bold: 600;
+    --light: 300;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #F7F8FD;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 60px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

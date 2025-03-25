@@ -1,0 +1,22 @@
+.pill__button {
+    height: 30px;
+    padding: 5px 10px;
+    background-color: #F2F4FF;
+    color: #4661E6;
+    font-size: 13px;
+    font-weight: var(--bold);
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.pill__button:hover {
+    background-color: #4661E6;
+    color: #F2F4FF;
+}
+
+.pill__button__active {
+    background-color: #4661E6;
+    color: #F2F4FF;
+}

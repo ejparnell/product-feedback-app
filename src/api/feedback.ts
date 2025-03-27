@@ -40,9 +40,12 @@ export const loadDefaultData = () => {
 
         const productRequests = defaultData.filter(data => data.key === 'productRequests');
         localStorage.setItem('productRequests', JSON.stringify(productRequests[0].value));
+    } else {
+        return console.log('Data already loaded');
     }
 }
 
+// Get the Planned, In Progress, and Live breakdown of the roadmap
 export const getRoadmapBreakdown = () => {
     const productRequests = JSON.parse(localStorage.getItem('productRequests')!) as ProductRequest[]
 
@@ -65,3 +68,17 @@ export const getRoadmapBreakdown = () => {
     return breakdown
 }
 
+// Get all feedback requests
+export const getAllFeedback = () => {
+    return JSON.parse(localStorage.getItem('productRequests')!) as ProductRequest[]
+}
+
+// Set all feedback requests
+export const setAllFeedback = (data: ProductRequest[]) => {
+    localStorage.setItem('productRequests', JSON.stringify(data))
+}
+
+// Get Current Users Voted Requests
+export const getVotedRequests = () => {
+    return JSON.parse(localStorage.getItem('votedRequests') || '[]')
+}

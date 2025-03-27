@@ -11,6 +11,8 @@
 :root {
     --bold: 600;
     --light: 300;
+
+    --white-filter: invert(99%) sepia(64%) saturate(0%) hue-rotate(224deg) brightness(116%) contrast(100%);
 }
 
 body {

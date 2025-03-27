@@ -26,13 +26,13 @@ const NavMenu = () => {
                     isDrawerOpen ?
                         // Mobile only
                         <img
-                            src='/assets/shared/mobile/icon-hamburger.svg'
-                            alt='Hamburger Menu'
+                            src='/assets/shared/mobile/icon-close.svg'
+                            alt='Close Menu'
                             onClick={() => setIsDrawerOpen(prev => !prev)}
                         /> :
                         <img
-                            src='/assets/shared/mobile/icon-close.svg'
-                            alt='Close Menu'
+                            src='/assets/shared/mobile/icon-hamburger.svg'
+                            alt='Hamburger Menu'
                             onClick={() => setIsDrawerOpen(prev => !prev)}
                         /> :
                     undefined

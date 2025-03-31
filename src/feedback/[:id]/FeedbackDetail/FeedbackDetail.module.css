@@ -1,0 +1,125 @@
+.feedback-detail {
+    padding: 20px;
+}
+
+.feedback-detail__link {
+    font-size: 13px;
+}
+
+.feedback-detail__link--back {
+    color: #647196;
+    font-weight: var(--bold);
+    text-decoration: none;
+}
+
+.feedback-detail__edit-label {
+    color: #F2F4FE;
+    font-weight: var(--bold);
+}
+
+.feedback-detail__comments-title {
+    color: #3A4374;
+    font-weight: var(--bold);
+    letter-spacing: -0.18px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.feedback-detail__icon {
+    margin-right: 10px;
+}
+
+.feedback-detail__edit {
+    background-color: #4661E6;
+    height: 40px;
+    width: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.feedback-detail__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.feedback-detail__comments-section {
+    width: 327px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.feedback-detail__divider {
+    border: 1px solid #8C92B3;
+    margin: 25px 0;
+    opacity: 25%;
+}
+
+.feedback-detail__new-comment-section {
+    height: 234px;
+    width: 327px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.feedback-detail__comment-title {
+    font-size: 18px;
+    color: #3A4374;
+    font-weight: var(--bold);
+    letter-spacing: -0.25px;
+    margin-bottom: 20px;
+}
+
+.feedback-detail__comment-input {
+    height: 80px;
+    width: 100%;
+    background-color: #F2F4FE;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    color: #3A4374;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.feedback-detail__comment-input::placeholder {
+    color: #8C92B3;
+}
+
+.feedback-detail__comment-input:focus {
+    outline: 1px solid #4661E6;
+}
+
+.feedback-detail__char-counter {
+    font-size: 13px;
+    color: #647196;
+}
+
+.feedback-detail__submit-btn {
+    background-color: #AD1FEA;
+    border-radius: 10px;
+    height: 40px;
+    width: 119px;
+    color: #F2F4FE;
+    font-weight: var(--bold);
+    font-size: 13px;
+    border: none;
+}
+
+.feedback-detail__comment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.feedback-detail__comment-form {
+    width: 279px;
+}

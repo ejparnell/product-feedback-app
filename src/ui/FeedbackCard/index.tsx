@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ProductRequest, VoteMode } from '../../constants/types';
 import { getVotedRequests } from '../../api/feedback';
 import styles from './FeedbackCard.module.css';
+import { Link } from 'react-router';
 
 interface Props {
     feedback: ProductRequest;
@@ -43,21 +44,26 @@ const FeedbackCard = ({ feedback, onUpvote }: Props) => {
     return (
         <div className={styles['feedback-card']}>
             <div>
-                <h2
-                    className={`${styles['feedback-card__text']} ${styles['feedback-card__text--title']}`}
+                <Link
+                    className={styles['feedback-card__link']}
+                    to={`/feedback/${feedback.id}`}
                 >
-                    {feedback.title}
-                </h2>
-                <p
-                    className={`${styles['feedback-card__text']} ${styles['feedback-card__text--description']}`}
-                >
-                    {formattedDescription}
-                </p>
-                <p
-                    className={`${styles['feedback-card__text']} ${styles['feedback-card__text--category']}`}
-                >
-                    {formattedCategory}
-                </p>
+                    <h2
+                        className={`${styles['feedback-card__text']} ${styles['feedback-card__text--title']}`}
+                    >
+                        {feedback.title}
+                    </h2>
+                    <p
+                        className={`${styles['feedback-card__text']} ${styles['feedback-card__text--description']}`}
+                    >
+                        {formattedDescription}
+                    </p>
+                    <p
+                        className={`${styles['feedback-card__text']} ${styles['feedback-card__text--category']}`}
+                    >
+                        {formattedCategory}
+                    </p>
+                </Link>
             </div>
 
             <div

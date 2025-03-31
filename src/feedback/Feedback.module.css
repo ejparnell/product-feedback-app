@@ -1,5 +1,5 @@
 .feedback-index__header {
-    background-color: #373F68;
+    background-color: #373f68;
     height: 56px;
     display: flex;
     justify-content: space-around;
@@ -12,13 +12,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #AD1FEA;
+    background-color: #ad1fea;
     border-radius: 10px;
 }
 
 .feedback-index__text {
     font-size: 13px;
-    color: #F2F4FE;
+    color: #f2f4fe;
     font-weight: var(--bold);
     text-decoration: none;
 }
@@ -30,6 +30,31 @@
     justify-content: center;
     margin-top: 30px;
     gap: 20px;
+}
+
+.feedback-index__empty {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 460px;
+    width: 327px;
+    padding: 30px;
+}
+
+.feedback-index__empty-text {
+    font-size: 18px;
+    color: #3a4374;
+    font-weight: var(--bold);
+}
+
+.feedback-index__empty-text--description {
+    font-size: 13px;
+    color: #647196;
+    font-weight: var(--light);
+    margin-top: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -45,7 +70,7 @@
     }
 
     .feedback-index__text--suggestions {
-        color: #FFFFFF;
+        color: #ffffff;
         font-size: 18px;
         font-weight: var(--bold);
     }
@@ -55,5 +80,42 @@
         justify-content: space-between;
         align-items: center;
         width: 156px;
+    }
+
+    .feedback-index__empty {
+        height: 600px;
+        width: 689px;
+        padding: 150px;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .feedback-index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feedback-index {
+        margin: 0;
+    }
+
+    .feedback__container {
+        width: 100%;
+
+        display: grid;
+        grid:
+            "sidebar content" 1fr / auto 1fr;
+        gap: 8px;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+    }
+
+    .content {
+        grid-area: content;
+        width: 825px;
     }
 }

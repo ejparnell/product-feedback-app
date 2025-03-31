@@ -1,8 +1,8 @@
 export const pillFilters = [
-    { name: 'All', value: 'all' },
-    { name: 'UI', value: 'ui' },
-    { name: 'UX', value: 'ux' },
-    { name: 'Enhancement', value: 'enhancement' },
-    { name: 'Bug', value: 'bug' },
-    { name: 'Feature', value: 'feature' },
-]
+    { label: 'All', value: 'all' },
+    { label: 'UI', value: 'ui' },
+    { label: 'UX', value: 'ux' },
+    { label: 'Enhancement', value: 'enhancement' },
+    { label: 'Bug', value: 'bug' },
+    { label: 'Feature', value: 'feature' },
+];

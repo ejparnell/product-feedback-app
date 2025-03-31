@@ -16,6 +16,7 @@ export interface Comment {
 }
 
 export interface Reply {
+    id: number;
     content: string;
     replyingTo: string;
     user: User;
@@ -27,4 +28,9 @@ export interface User {
     image: string;
 }
 
-export type VoteMode = 'upvote' | 'remove'
+export interface Filter {
+    value: string;
+    label: string;
+}
+
+export type VoteMode = 'upvote' | 'remove';

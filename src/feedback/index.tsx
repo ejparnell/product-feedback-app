@@ -1,106 +1,76 @@
-import { useState, useEffect } from 'react';
-import { useLoaderData, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Dropdown from '../ui/Dropdown';
 import { sortByOptions } from '../constants/sort-by-options';
 import FeedbackCard from '../ui/FeedbackCard';
 import { ProductRequest, VoteMode } from '../constants/types';
-import { setAllFeedback } from '../api/feedback';
 import useWindowSize from '../hooks/useWindowSize';
+import { useFeedback } from '../context/FeedbackProvider';
+import { onUpvote } from '../utils/on-upvote';
+import NavMenu from '../ui/NavMenu';
 import styles from './Feedback.module.css';
 
 const Feedback = () => {
-    const feedbackRequests = useLoaderData();
     const { width } = useWindowSize();
-    const [sortBy, setSortBy] = useState({
-        value: 'most-upvotes',
-        label: 'Most Upvotes',
-    });
-    const [feedback, setFeedback] =
-        useState<ProductRequest[]>(feedbackRequests);
-    const [filteredFeedback, setFilteredFeedback] =
-        useState<ProductRequest[]>(feedbackRequests);
+    const { feedback, filteredFeedback, setFeedback, sortBy, setSortBy } = useFeedback();
 
     const handleUpvote = (id: number, mode: VoteMode) => {
-        const updatedFeedback: ProductRequest[] = feedback.map((item) => {
-            if (item.id === id) {
-                return {
-                    ...item,
-                    upvotes:
-                        mode === 'upvote' ? item.upvotes + 1 : item.upvotes - 1,
-                };
-            }
-            return item;
-        });
-        setAllFeedback(updatedFeedback);
+        const updatedFeedback = onUpvote(feedback, id, mode);
         setFeedback(updatedFeedback);
     };
 
-    useEffect(() => {
-        const sortFeedback = (sortBy: { value: string; label: string }) => {
-            switch (sortBy.value) {
-                case 'most-upvotes':
-                    return [...feedback].sort((a, b) => b.upvotes - a.upvotes);
-                case 'least-upvotes':
-                    return [...feedback].sort((a, b) => a.upvotes - b.upvotes);
-                case 'most-comments':
-                    return [...feedback].sort(
-                        (a, b) =>
-                            (b.comments?.length ?? 0) -
-                            (a.comments?.length ?? 0)
-                    );
-                case 'least-comments':
-                    return [...feedback].sort(
-                        (a, b) =>
-                            (a.comments?.length ?? 0) -
-                            (b.comments?.length ?? 0)
-                    );
-                default:
-                    return feedback;
-            }
-        };
-        setFilteredFeedback(sortFeedback(sortBy));
-    }, [sortBy, feedback]);
-
     return (
-        <div className={styles['feedback-index']}>
-            {/* Header */}
-            <div className={styles['feedback-index__header']}>
-                {width >= 768 && (
-                    <div className={styles['feedback-index__suggestions']}>
-                        <img
-                            src='/assets/suggestions/icon-suggestions.svg'
-                            alt='Suggestions Bulb'
-                        />
-                        <p className={styles['feedback-index__text--suggestions']}>{filteredFeedback.length} Suggestions</p>
-                    </div>
-                )}
-                {/* Sort by dropdown */}
-                <Dropdown
-                    options={sortByOptions}
-                    selected={sortBy}
-                    setSelected={setSortBy}
-                />
-
-                {/* Link to New Feedback */}
-                <div className={styles['feedback-index__new']}>
-                    <Link
-                        className={styles['feedback-index__text']}
-                        to='/feedback/new'
-                    >
-                        + Add Feedback
-                    </Link>
-                </div>
+        <div className={styles.feedback__container}>
+            <div className={styles.sidebar}>
+                <NavMenu />
             </div>
+            <div className={styles.content}>
+                <div className={styles['feedback-index']}>
+                    {/* Header */}
+                    <div className={styles['feedback-index__header']}>
+                        {width >= 768 && (
+                            <div className={styles['feedback-index__suggestions']}>
+                                <img src='/assets/suggestions/icon-suggestions.svg' alt='Suggestions Bulb' />
+                                <p className={styles['feedback-index__text--suggestions']}>
+                                    {filteredFeedback.length} Suggestions
+                                </p>
+                            </div>
+                        )}
+                        
+                        {/* Sort by dropdown */}
+                        <Dropdown options={sortByOptions} selected={sortBy} setSelected={setSortBy} />
 
-            {/* Feedback List */}
-            <div className={styles['feedback-index__list']}>
-                {filteredFeedback.map((feedback: ProductRequest) => (
-                    <FeedbackCard
-                        key={feedback.id}
-                        feedback={feedback}
-                        onUpvote={handleUpvote}
-                    />
-                ))}
+                        {/* Link to New Feedback */}
+                        <div className={styles['feedback-index__new']}>
+                            <Link className={styles['feedback-index__text']} to='/feedback/new'>
+                                + Add Feedback
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Feedback List */}
+                    <div className={styles['feedback-index__list']}>
+                        {filteredFeedback.length > 0 ? (
+                            filteredFeedback.map((feedback: ProductRequest) => (
+                                <FeedbackCard key={feedback.id} feedback={feedback} onUpvote={handleUpvote} />
+                            ))
+                        ) : (
+                            // No feedback view
+                            <div className={styles['feedback-index__empty']}>
+                                <img src='/assets/suggestions/illustration-empty.svg' alt='Empty Suggestions' />
+                                <p className={styles['feedback-index__empty-text']}>There is no feedback yet.</p>
+                                <p className={styles['feedback-index__empty-text--description']}>
+                                    Got a suggestion? Found a bug that needs to be squashed? We love hearing about new
+                                    ideas to improve our app.
+                                </p>
+                                <div className={styles['feedback-index__new']}>
+                                    <Link className={styles['feedback-index__text']} to='/feedback/new'>
+                                        + Add Feedback
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

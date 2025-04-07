@@ -14,10 +14,10 @@ import Roadmap from './roadmap';
 loadLocalData();
 
 const router = createBrowserRouter([
-    // {
-    //     path: '/',
-    //     element: <Navigate to='/feedback' replace />,
-    // },
+    {
+        path: '/',
+        element: <Navigate to='/feedback' replace />,
+    },
     {
         path: '/roadmap',
         children: [

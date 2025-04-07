@@ -1,19 +1,19 @@
-import { Link, useParams } from 'react-router';
+import { Link, useParams, useNavigate } from 'react-router';
 import { useFeedback } from '../../../context/FeedbackProvider';
 import { useState, useEffect } from 'react';
-import { ProductRequest, VoteMode } from '../../../constants/types';
+import { ProductRequest } from '../../../constants/types';
 import FeedbackCard from '../../../ui/FeedbackCard';
-import { onUpvote } from '../../../utils/on-upvote';
-import CommentCard from '../../../ui/CommentCard';
 import { useUser } from '../../../context/UserProvider';
 import { updateLocalFeedback } from '../../../api/feedback';
 import styles from './FeedbackDetail.module.css';
+import CommentsSection from '../../../ui/CommentSection';
 
 const FeedbackDetail = () => {
     const MAX_COMMENT_LENGTH = 250;
     const { id } = useParams<{ id: string }>();
     const { feedback, setFeedback } = useFeedback();
     const { user } = useUser();
+    const navigate = useNavigate();
     const [currentFeedback, setCurrentFeedback] = useState<ProductRequest | null>(null);
     const [formData, setFormData] = useState({
         content: '',
@@ -29,13 +29,6 @@ const FeedbackDetail = () => {
         }
     }, [id, feedback]);
 
-    const handleUpvote = (id: number, mode: VoteMode) => {
-        const updatedFeedback = onUpvote(feedback, id, mode);
-        const foundFeedback = updatedFeedback.find((item) => item.id === id);
-        setCurrentFeedback(foundFeedback ?? null);
-        setFeedback(updatedFeedback);
-    };
-
     const handleNewComment = (event: React.FormEvent) => {
         event.preventDefault();
         if (!user) {
@@ -48,13 +41,14 @@ const FeedbackDetail = () => {
             user: user,
             content: formData.content,
         };
+
         const updatedFeedback: ProductRequest = {
             ...currentFeedback,
             id: currentFeedback?.id ?? 0,
             title: currentFeedback?.title || '',
             category: currentFeedback?.category || '',
             upvotes: currentFeedback?.upvotes || 0,
-            status: currentFeedback?.status || 'suggestion',
+            status: currentFeedback?.status || { value: 'suggestion', label: 'Suggestion' },
             description: currentFeedback?.description || '',
             comments: [...(currentFeedback?.comments ?? []), newComment],
         };
@@ -86,13 +80,16 @@ const FeedbackDetail = () => {
                 </Link>
 
                 {/* Edit button */}
-                <div className={styles['feedback-detail__edit']}>
+                <div
+                    onClick={() => navigate(`/feedback/${currentFeedback?.id}/edit`)}
+                    className={styles['feedback-detail__edit']}
+                >
                     <p className={styles['feedback-detail__edit-label']}>Edit Feedback</p>
                 </div>
             </header>
 
             {/* Feedback Card */}
-            {currentFeedback && <FeedbackCard feedback={currentFeedback} onUpvote={handleUpvote} />}
+            {currentFeedback && <FeedbackCard feedback={currentFeedback} />}
 
             {/* Comments Section */}
             <section className={styles['feedback-detail__comments-section']}>
@@ -100,14 +97,13 @@ const FeedbackDetail = () => {
                     {currentFeedback?.comments?.length || 0} Comments
                 </p>
 
-                {currentFeedback?.comments?.map((comment, index) => (
-                    <div key={comment.id || index}>
-                        <CommentCard comment={comment} />
-                        {index < (currentFeedback.comments ?? []).length - 1 && (
-                            <hr className={styles['feedback-detail__divider']} />
-                        )}
-                    </div>
-                ))}
+                {currentFeedback && (
+                    <CommentsSection
+                        currentFeedback={currentFeedback}
+                        user={user}
+                        setCurrentFeedback={setCurrentFeedback}
+                    />
+                )}
             </section>
 
             {/* Add Comment Section */}

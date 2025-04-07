@@ -1,0 +1,121 @@
+.feedback-edit {
+    padding: 20px;
+}
+
+.feedback-edit__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.feedback-edit__link {
+    font-size: 13px;
+}
+
+.feedback-edit__link--back {
+    color: #647196;
+    font-weight: var(--bold);
+    text-decoration: none;
+}
+
+.feedback-edit__icon {
+    margin-right: 10px;
+}
+
+.feedback-edit__content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-width: 327px;
+    padding: 20px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.feedback-edit__content-icon {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: -20px;
+}
+
+.feedback-edit__title {
+    color: #3a4374;
+    font-weight: var(--bold);
+    letter-spacing: -0.25px;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.feedback-edit__controls {
+    min-width: 279px;
+}
+
+.feedback-edit__btn {
+    width: 100%;
+    height: 40px;
+    color: #f2f4fe;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Jost', sans-serif;
+}
+
+.feedback-edit__btn--add {
+    background-color: #ad1fea;
+    margin-bottom: 15px;
+}
+
+.feedback-edit__btn--cancel {
+    background-color: #3a4374;
+    margin-bottom: 15px;
+}
+
+.feedback-edit__btn--delete {
+    background-color: #d73737;
+}
+
+@media screen and (min-width: 768px) {
+    .feedback-edit {
+        min-width: 540px;
+    }
+
+    .feedback-edit__header {
+        margin-top: -30px;
+    }
+
+    .feedback-edit__content {
+        margin: 50px 0;
+    }
+
+    .feedback-edit__link {
+        font-size: 14px;
+    }
+
+    .feedback-edit__title {
+        font-size: 24px;
+    }
+
+    .feedback-edit__controls {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+    }
+
+    .feedback-edit__btn--add {
+        height: 44px;
+        width: 140px;
+        order: 1;
+    }
+
+    .feedback-edit__btn--cancel {
+        height: 44px;
+        width: 93px;
+    }
+
+    .feedback-edit__btn--delete {
+        order: -1;
+        height: 44px;
+        width: 93px;
+        margin-right: auto;
+    }
+}

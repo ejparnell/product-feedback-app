@@ -1,0 +1,41 @@
+.vote-pill__pill {
+    display: flex;
+    width: 69px;
+    height: 32px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.vote-pill__pill--dark {
+    background-color: #f2f4ff;
+    border-radius: 10px;
+}
+
+.vote-pill__pill--dark:hover {
+    background-color: #cfd7ff;
+}
+
+.vote-pill__pill--selected {
+    background-color: #4661e6;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.vote-pill__arrow--selected {
+    filter: var(--white-filter);
+}
+
+.vote-pill__text--bold {
+    font-weight: var(--bold);
+}
+
+.vote-pill__text {
+    font-size: 13px;
+}
+
+@media screen and (min-width: 1440px) {
+    .vote-pill__text {
+        font-size: 16px;
+    }
+}

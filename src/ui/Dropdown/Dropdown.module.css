@@ -8,7 +8,7 @@
 
 .dropdown__label {
     font-size: 13px;
-    color: #F2F4FE;
+    color: #f2f4fe;
     cursor: pointer;
     font-weight: var(--bold);
 }
@@ -21,16 +21,16 @@
 }
 
 .dropdown__text--name {
-   font-weight: var(--light);
-   opacity: 75%;
+    font-weight: var(--light);
+    opacity: 75%;
 }
 
 .dropdown__text:hover {
-    color: #AD1FEA;
+    color: #ad1fea;
 }
 
 .dropdown__text--selected {
-    color: #AD1FEA;
+    color: #ad1fea;
     font-size: 16px;
     cursor: pointer;
     margin: 10px 0 10px 20px;
@@ -42,12 +42,12 @@
 
 .dropdown__options {
     width: 190px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 10px;
     position: absolute;
     padding: 5px 0px;
     margin-top: 18px;
-    box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.34);
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.34);
 }
 
 .dropdown__hr {

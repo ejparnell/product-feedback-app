@@ -13,12 +13,12 @@
 }
 
 .feedback-detail__edit-label {
-    color: #F2F4FE;
+    color: #f2f4fe;
     font-weight: var(--bold);
 }
 
 .feedback-detail__comments-title {
-    color: #3A4374;
+    color: #3a4374;
     font-weight: var(--bold);
     letter-spacing: -0.18px;
     margin-bottom: 25px;
@@ -30,7 +30,7 @@
 }
 
 .feedback-detail__edit {
-    background-color: #4661E6;
+    background-color: #4661e6;
     height: 40px;
     width: 119px;
     display: flex;
@@ -47,30 +47,30 @@
 }
 
 .feedback-detail__comments-section {
-    width: 327px;
-    background-color: #FFFFFF;
+    min-width: 327px;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
 }
 
 .feedback-detail__divider {
-    border: 1px solid #8C92B3;
+    border: 1px solid #8c92b3;
     margin: 25px 0;
     opacity: 25%;
 }
 
 .feedback-detail__new-comment-section {
     height: 234px;
-    width: 327px;
-    background-color: #FFFFFF;
+    min-width: 327px;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
 }
 
 .feedback-detail__comment-title {
     font-size: 18px;
-    color: #3A4374;
+    color: #3a4374;
     font-weight: var(--bold);
     letter-spacing: -0.25px;
     margin-bottom: 20px;
@@ -79,22 +79,22 @@
 .feedback-detail__comment-input {
     height: 80px;
     width: 100%;
-    background-color: #F2F4FE;
+    background-color: #f2f4fe;
     border-radius: 10px;
     padding: 20px;
     border: none;
     font-family: 'Jost', sans-serif;
-    color: #3A4374;
+    color: #3a4374;
     font-size: 13px;
     cursor: pointer;
 }
 
 .feedback-detail__comment-input::placeholder {
-    color: #8C92B3;
+    color: #8c92b3;
 }
 
 .feedback-detail__comment-input:focus {
-    outline: 1px solid #4661E6;
+    outline: 1px solid #4661e6;
 }
 
 .feedback-detail__char-counter {
@@ -103,11 +103,11 @@
 }
 
 .feedback-detail__submit-btn {
-    background-color: #AD1FEA;
+    background-color: #ad1fea;
     border-radius: 10px;
     height: 40px;
     width: 119px;
-    color: #F2F4FE;
+    color: #f2f4fe;
     font-weight: var(--bold);
     font-size: 13px;
     border: none;
@@ -121,5 +121,5 @@
 }
 
 .feedback-detail__comment-form {
-    width: 279px;
+    min-width: 279px;
 }

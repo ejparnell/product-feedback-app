@@ -2,21 +2,15 @@ import { Link } from 'react-router-dom';
 import Dropdown from '../ui/Dropdown';
 import { sortByOptions } from '../constants/sort-by-options';
 import FeedbackCard from '../ui/FeedbackCard';
-import { ProductRequest, VoteMode } from '../constants/types';
+import { ProductRequest } from '../constants/types';
 import useWindowSize from '../hooks/useWindowSize';
 import { useFeedback } from '../context/FeedbackProvider';
-import { onUpvote } from '../utils/on-upvote';
 import NavMenu from '../ui/NavMenu';
 import styles from './Feedback.module.css';
 
 const Feedback = () => {
     const { width } = useWindowSize();
-    const { feedback, filteredFeedback, setFeedback, sortBy, setSortBy } = useFeedback();
-
-    const handleUpvote = (id: number, mode: VoteMode) => {
-        const updatedFeedback = onUpvote(feedback, id, mode);
-        setFeedback(updatedFeedback);
-    };
+    const { filteredFeedback, sortBy, setSortBy } = useFeedback();
 
     return (
         <div className={styles.feedback__container}>
@@ -35,7 +29,7 @@ const Feedback = () => {
                                 </p>
                             </div>
                         )}
-                        
+
                         {/* Sort by dropdown */}
                         <Dropdown options={sortByOptions} selected={sortBy} setSelected={setSortBy} />
 
@@ -51,7 +45,7 @@ const Feedback = () => {
                     <div className={styles['feedback-index__list']}>
                         {filteredFeedback.length > 0 ? (
                             filteredFeedback.map((feedback: ProductRequest) => (
-                                <FeedbackCard key={feedback.id} feedback={feedback} onUpvote={handleUpvote} />
+                                <FeedbackCard key={feedback.id} feedback={feedback} />
                             ))
                         ) : (
                             // No feedback view

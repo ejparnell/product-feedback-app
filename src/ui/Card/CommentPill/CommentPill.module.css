@@ -1,0 +1,22 @@
+.comment-pill__text {
+    font-size: 13px;
+}
+
+.comment-pill__text--bold {
+    font-weight: var(--bold);
+}
+
+.comment-pill__pill {
+    display: flex;
+    width: 69px;
+    height: 32px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 1440px) {
+    .comment-pill__text {
+        font-size: 16px;
+    }
+}

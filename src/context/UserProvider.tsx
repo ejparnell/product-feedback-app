@@ -1,10 +1,4 @@
-import {
-    createContext,
-    useContext,
-    useState,
-    useEffect,
-    ReactNode,
-} from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User } from '../constants/types';
 import { getLocalUser } from '../api/user';
 
@@ -26,12 +20,8 @@ export const UserProvider = ({ children }: Props) => {
         if (localUser) setUser(localUser);
     }, []);
 
-    return (
-        <UserContext.Provider value={{ user }}>
-            {children}
-        </UserContext.Provider>
-    );
-}
+    return <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>;
+};
 
 export const useUser = () => {
     const context = useContext(UserContext);
@@ -39,4 +29,4 @@ export const useUser = () => {
         throw new Error('useUser must be used within a UserProvider');
     }
     return context;
-}
+};

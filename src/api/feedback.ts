@@ -29,11 +29,11 @@ export const getRoadmapBreakdown = () => {
     if (!productRequests) return breakdown;
 
     productRequests.forEach((request: ProductRequest) => {
-        if (request.status === 'planned') {
+        if (request.status.value === 'planned') {
             breakdown.planned++;
-        } else if (request.status === 'in-progress') {
+        } else if (request.status.value === 'in-progress') {
             breakdown.inProgress++;
-        } else if (request.status === 'live') {
+        } else if (request.status.value === 'live') {
             breakdown.live++;
         }
     });
@@ -56,11 +56,23 @@ export const getVotedRequests = () => {
     return JSON.parse(localStorage.getItem('votedRequests') || '[]');
 };
 
+// Updates a feedback request
 export const updateLocalFeedback = (data: ProductRequest) => {
     const productRequests = getLocalFeedback();
-    const updatedRequests = productRequests.map((request) =>
-        request.id === data.id ? data : request
-    );
+    const updatedRequests = productRequests.map((request) => (request.id === data.id ? data : request));
+    setLocalFeedback(updatedRequests);
+};
 
+// Add a new feedback request
+export const addLocalFeedback = (data: ProductRequest) => {
+    const productRequests = getLocalFeedback();
+    const updatedRequests = [...productRequests, data];
+    setLocalFeedback(updatedRequests);
+};
+
+// Delete a feedback request
+export const deleteLocalFeedback = (id: number) => {
+    const productRequests = getLocalFeedback();
+    const updatedRequests = productRequests.filter((request) => request.id !== id);
     setLocalFeedback(updatedRequests);
 };

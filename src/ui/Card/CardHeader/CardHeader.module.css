@@ -1,0 +1,37 @@
+.card-header__text {
+    font-size: 13px;
+}
+
+.card-header__text--title {
+    color: #3a4374;
+    font-weight: var(--bold);
+    letter-spacing: -0.18px;
+    margin-bottom: 10px;
+}
+
+.card-header__text--description {
+    color: #647196;
+    font-weight: var(--light);
+    margin-bottom: 10px;
+}
+
+.card-header__text--category {
+    color: #4661e6;
+    font-weight: var(--bold);
+    padding: 5px 15px;
+    background-color: #f2f4ff;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.card-header__link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1440px) {
+    .card-header__text {
+        font-size: 16px;
+    }
+}

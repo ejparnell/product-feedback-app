@@ -2,8 +2,9 @@
     background-color: #373f68;
     height: 56px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
 }
 
 .feedback-index__new {
@@ -30,6 +31,8 @@
     justify-content: center;
     margin-top: 30px;
     gap: 20px;
+    min-width: 327px;
+    padding: 20px;
 }
 
 .feedback-index__empty {
@@ -66,7 +69,6 @@
         width: 689px;
         height: 72px;
         border-radius: 10px;
-        padding: 20px;
     }
 
     .feedback-index__text--suggestions {
@@ -88,6 +90,10 @@
         padding: 150px;
         justify-content: space-between;
     }
+
+    .feedback-index__list {
+        padding: 0;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -105,8 +111,7 @@
         width: 100%;
 
         display: grid;
-        grid:
-            "sidebar content" 1fr / auto 1fr;
+        grid: 'sidebar content' 1fr / auto 1fr;
         gap: 8px;
     }
 

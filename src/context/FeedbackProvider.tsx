@@ -1,10 +1,4 @@
-import React, {
-    createContext,
-    useContext,
-    useState,
-    useEffect,
-    ReactNode,
-} from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { ProductRequest, Filter } from '../constants/types';
 import { getLocalFeedback } from '../api/feedback';
 import { filterFeedback, sortFeedback } from '../utils/filter-functions';
@@ -19,9 +13,7 @@ interface FeedbackContextType {
     setSortBy: React.Dispatch<React.SetStateAction<Filter>>;
 }
 
-const FeedbackContext = createContext<FeedbackContextType | undefined>(
-    undefined
-);
+const FeedbackContext = createContext<FeedbackContextType | undefined>(undefined);
 
 interface Props {
     children: ReactNode;
@@ -29,9 +21,7 @@ interface Props {
 
 export const FeedbackProvider = ({ children }: Props) => {
     const [feedback, setFeedback] = useState<ProductRequest[]>([]);
-    const [filteredFeedback, setFilteredFeedback] = useState<ProductRequest[]>(
-        []
-    );
+    const [filteredFeedback, setFilteredFeedback] = useState<ProductRequest[]>([]);
     const [filter, setFilter] = useState({ value: 'all', label: 'All' });
     const [sortBy, setSortBy] = useState({
         value: 'most-upvotes',

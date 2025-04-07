@@ -3,9 +3,14 @@ export interface ProductRequest {
     title: string;
     category: string;
     upvotes: number;
-    status: 'suggestion' | 'planned' | 'in-progress' | 'live';
+    status: Status;
     description: string;
     comments?: Comment[];
+}
+
+export interface Status {
+    value: 'suggestion' | 'planned' | 'in-progress' | 'live';
+    label: 'Suggestion' | 'Planned' | 'In Progress' | 'Live';
 }
 
 export interface Comment {
@@ -20,6 +25,7 @@ export interface Reply {
     content: string;
     replyingTo: string;
     user: User;
+    replies?: Reply[];
 }
 
 export interface User {

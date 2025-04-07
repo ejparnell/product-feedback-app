@@ -41,9 +41,7 @@ const NavMenu = () => {
             </div>
 
             {/* Overlay - On mobile */}
-            {width < minTabletWidth && isDrawerOpen && (
-                <div className={styles.nav__overlay} />
-            )}
+            {width < minTabletWidth && isDrawerOpen && <div className={styles.nav__overlay} />}
 
             {/* Drawer - On mobile */}
             {(width >= minTabletWidth || isDrawerOpen) && (
@@ -64,10 +62,7 @@ const NavMenu = () => {
                     <div className={styles.roadmap}>
                         <div className={styles.roadmap__header}>
                             <p className={styles.roadmap__title}>Roadmap</p>
-                            <NavLink
-                                className={styles.roadmap__subtitle}
-                                to='/roadmap'
-                            >
+                            <NavLink className={styles.roadmap__subtitle} to='/roadmap'>
                                 View
                             </NavLink>
                         </div>
@@ -77,10 +72,7 @@ const NavMenu = () => {
                                 { name: 'inProgress', color: '#AD1FEA' },
                                 { name: 'live', color: '#62BCFA' },
                             ].map((status, index) => (
-                                <div
-                                    className={styles.roadmap__item}
-                                    key={index}
-                                >
+                                <div className={styles.roadmap__item} key={index}>
                                     <div
                                         style={{
                                             backgroundColor: status.color,
@@ -90,16 +82,12 @@ const NavMenu = () => {
                                     <p className={styles.roadmap__text}>
                                         {status.name
                                             .replace(/([a-z])([A-Z])/g, '$1 $2')
-                                            .replace(/^./, (str) =>
-                                                str.toUpperCase()
-                                            )}
+                                            .replace(/^./, (str) => str.toUpperCase())}
                                     </p>
                                     <p className={styles.roadmap__count}>
                                         {
                                             getRoadmapBreakdown()[
-                                                status.name as keyof ReturnType<
-                                                    typeof getRoadmapBreakdown
-                                                >
+                                                status.name as keyof ReturnType<typeof getRoadmapBreakdown>
                                             ]
                                         }
                                     </p>

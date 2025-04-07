@@ -1,0 +1,137 @@
+.thread-item__avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.thread-item__name {
+    color: #3a4374;
+    font-size: 13px;
+    letter-spacing: -0.18px;
+    font-weight: var(--bold);
+}
+
+.thread-item__username {
+    color: #647196;
+    font-size: 13px;
+    font-weight: var(--light);
+}
+
+.thread-item__reply-button {
+    color: #4661e6;
+    font-size: 13px;
+    font-weight: var(--bold);
+    text-decoration: none;
+}
+
+.thread-item__reply-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.thread-item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thread-item__text {
+    font-size: 13px;
+    font-weight: var(--light);
+    margin-top: 15px;
+    color: #647196;
+}
+
+.thread-item__user-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.thread-item__mention {
+    color: #ad1fea;
+    font-weight: var(--bold);
+    margin-right: 5px;
+}
+
+.thread-item__divider {
+    width: 2px;
+    background-color: #8c92b3;
+    margin-right: 1rem;
+    opacity: 25%;
+}
+
+.thread-item__replies {
+    display: flex;
+    align-items: stretch;
+    margin-top: 20px;
+}
+
+.thread-item__replies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.thread-item__reply-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.thread-item__reply-textarea {
+    background-color: #f2f4fe;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    color: #3a4374;
+    font-size: 13px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.thread-item__reply-textarea::placeholder {
+    color: #8c92b3;
+}
+
+.thread-item__reply-textarea:focus {
+    outline: 1px solid #4661e6;
+}
+
+.thread-item__reply-submit {
+    height: 44px;
+    width: 50px;
+    background-color: #ad1fea;
+    color: #f2f4fe;
+    font-size: 13px;
+    font-weight: var(--bold);
+    border-radius: 10px;
+    border: none;
+    margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .thread-item__reply-submit {
+        width: 117px;
+    }
+
+    .thread-item__name {
+        font-size: 14px;
+    }
+
+    .thread-item__username {
+        font-size: 14px;
+    }
+
+    .thread-item__text {
+        font-size: 15px;
+    }
+
+    .thread-item__reply-textarea {
+        font-size: 15px;
+    }
+
+    .thread-item__reply-submit {
+        font-size: 15px;
+    }
+}

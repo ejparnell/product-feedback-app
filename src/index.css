@@ -17,7 +17,7 @@
 
 body {
     font-family: 'Jost', sans-serif;
-    background-color: #F7F8FD;
+    background-color: #f7f8fd;
 }
 
 @media screen and (min-width: 768px) {
@@ -27,5 +27,4 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
 }

@@ -7,17 +7,11 @@ interface PillFilterProps {
     selectedFilter: Filter;
 }
 
-const PillFilter = ({
-    filter,
-    onFilterChange,
-    selectedFilter,
-}: PillFilterProps) => {
+const PillFilter = ({ filter, onFilterChange, selectedFilter }: PillFilterProps) => {
     return (
         <button
             className={`${styles.pill__button} ${
-                selectedFilter.value === filter.value
-                    ? styles.pill__button__active
-                    : ''
+                selectedFilter.value === filter.value ? styles.pill__button__active : ''
             }`}
             onClick={() => onFilterChange(filter)}
         >
